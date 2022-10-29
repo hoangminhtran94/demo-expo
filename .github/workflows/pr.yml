@@ -1,6 +1,7 @@
 name: update
 on: push
-env: REACT_APP_API : ${{ secret.REACT_APP_API }}
+env:
+  REACT_APP_API: "${{ secret.REACT_APP_API }}"
 jobs:
   update:
     name: EAS Update

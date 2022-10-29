@@ -1,7 +1,5 @@
 name: build
 on: push
-env:
-  REACT_APP_API: "${{ secrets.REACT_APP_API }}"
 jobs:
   build:
     name: EAS building
@@ -13,11 +11,6 @@ jobs:
             echo "You must provide an EXPO_TOKEN secret linked to this project's Expo account in this repo's secrets. Learn more: https://docs.expo.dev/eas-update/github-actions"
             exit 1np
           fi
-      - name: Set environment
-        run: echo "${{ secrets.REACT_APP_API }}"
-        env:
-          REACT_APP_API: "${{ secrets.REACT_APP_API }}"
-
       - name: Checkout repository
         uses: actions/checkout@v2
 

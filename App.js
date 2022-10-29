@@ -6,8 +6,8 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Hello!</Text>
-      <Text>{Constants.expoConfig.extra.fact}</Text>
-      <Text>{Constants.expoConfig.extra.api}</Text>
+      <Text>{process.env["REACT_APP_API"]}</Text>
+      {/* <Text>{Constants.expoConfig.extra.api}</Text> */}
       <StatusBar style="auto" />
     </View>
   );

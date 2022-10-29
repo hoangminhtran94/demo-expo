@@ -4,6 +4,8 @@ jobs:
   build:
     name: EAS building
     runs-on: ubuntu-latest
+    env:
+      REACT_APP_API: ${{ secrets.REACT_APP_API }}
     steps:
       - name: Check for EXPO_TOKEN
         run: |

@@ -7,6 +7,7 @@ export default function App() {
     <View style={styles.container}>
       <Text>Hello!</Text>
       <Text>{Constants.expoConfig.extra.fact}</Text>
+      <Text>{Constants.expoConfig.extra.api}</Text>
       <StatusBar style="auto" />
     </View>
   );

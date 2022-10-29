@@ -1,11 +1,14 @@
 import * as dotenv from "dotenv";
 dotenv.config();
-
-module.exports = {
-  name: "demo-expo",
-  version: process.env.MY_CUSTOM_PROJECT_VERSION || "1.0.0",
-  // All values in extra will be passed to your app.
-  extra: {
-    fact: process.env["REACT_APP_API"],
-  },
+export default ({ config }) => {
+  return {
+    ...config,
+    // All values in extra will be passed to your app.
+    extra: {
+      eas: {
+        projectId: "c56e401e-3e68-424c-96b0-22e083f1fef8",
+      },
+      fact: process.env["REACT_APP_API"],
+    },
+  };
 };

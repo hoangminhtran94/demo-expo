@@ -2,9 +2,6 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Constants from "expo-constants";
-import * as dotenv from "dotenv";
-dotenv.config();
-
 export default function App() {
   return (
     <View style={styles.container}>

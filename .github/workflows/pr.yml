@@ -14,8 +14,10 @@ jobs:
             exit 1np
           fi
       - name: Set environment
-         env: 
-            REACT_APP_API: "${{ secrets.REACT_APP_API }}"
+        run: echo "$(REACT_APP_API)"
+        env:
+          REACT_APP_API: "${{ secrets.REACT_APP_API }}"
+
       - name: Checkout repository
         uses: actions/checkout@v2
 

@@ -1,10 +1,10 @@
-name: update
+name: build
 on: push
 env:
   REACT_APP_API: "${{ secrets.REACT_APP_API }}"
 jobs:
-  update:
-    name: EAS Update
+  build:
+    name: EAS building
     runs-on: ubuntu-latest
     steps:
       - name: Check for EXPO_TOKEN
@@ -13,7 +13,9 @@ jobs:
             echo "You must provide an EXPO_TOKEN secret linked to this project's Expo account in this repo's secrets. Learn more: https://docs.expo.dev/eas-update/github-actions"
             exit 1np
           fi
-
+      - name: Set environment
+         env: 
+            REACT_APP_API: "${{ secrets.REACT_APP_API }}"
       - name: Checkout repository
         uses: actions/checkout@v2
 
@@ -45,4 +47,4 @@ jobs:
         run: yarn install --immutable
 
       - name: Publish update
-        run: eas update --auto
+        run: eas build --platform android --profile preview

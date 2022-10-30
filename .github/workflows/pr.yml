@@ -4,8 +4,6 @@ jobs:
   build:
     name: EAS building
     runs-on: ubuntu-latest
-    env:
-      REACT_APP_API: ${{ secrets.REACT_APP_API }}
     steps:
       - name: Check for EXPO_TOKEN
         run: |
@@ -44,4 +42,9 @@ jobs:
         run: yarn install --immutable
 
       - name: Publish update
-        run: eas build --platform android --profile preview
+        run: expo publish --release-channel=main-${{ github.event.number }}
+        env:
+          REACT_APP_API
+          NODE_OPTIONS: --max_old_space_size=8192
+       - run: echo 'App PR link is https://expo.dev/@hoangtran94/demo-expo?serviceType=classic&distribution=expo-go&release-channel=main-${{ github.event.number }}'
+      

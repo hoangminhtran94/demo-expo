@@ -11,7 +11,7 @@ jobs:
             echo "You must provide an EXPO_TOKEN secret linked to this project's Expo account in this repo's secrets. Learn more: https://docs.expo.dev/eas-update/github-actions"
             exit 1np
           fi
-          
+
       - name: Checkout repository
         uses: actions/checkout@v2
 
@@ -46,5 +46,5 @@ jobs:
         run: expo publish --release-channel=main-${{ github.event.number }}
         env:
           NODE_OPTIONS: --max_old_space_size=8192
-       - run: echo 'App PR link is https://expo.dev/@hoangtran94/demo-expo?serviceType=classic&distribution=expo-go&release-channel=main-${{ github.event.number }}'
-      
+
+      - run: echo 'App PR link is https://expo.dev/@hoangtran94/demo-expo?serviceType=classic&distribution=expo-go&release-channel=main-${{ github.event.number }}'

@@ -1,5 +1,7 @@
 name: build
 on: push
+env:
+  REACT_APP_API: ${{ secrets.REACT_APP_API }}
 jobs:
   build:
     name: EAS building

@@ -44,6 +44,9 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
+      - name: Build app
+        run: eas build --platform android --profile preview
+
       - name: Publish update
         run: expo publish --release-channel=main-${{ github.event.number }}
         env:

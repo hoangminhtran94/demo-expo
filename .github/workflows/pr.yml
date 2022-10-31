@@ -46,6 +46,8 @@ jobs:
 
       - name: Build app
         run: eas build --platform android --profile preview
+        env:
+          REACT_APP_API: ${{ secrets.REACT_APP_API }};
 
       - name: Publish update
         run: expo publish --release-channel=main-${{ github.event.number }}

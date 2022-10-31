@@ -44,15 +44,15 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Build app
-        run: eas build --platform android --profile preview
-        env:
-          REACT_APP_API: ${{ secrets.REACT_APP_API }};
-
       - name: Publish update
         run: expo publish --release-channel=main-${{ github.event.number }}
         env:
           NODE_OPTIONS: --max_old_space_size=8192
           REACT_APP_API: ${{ secrets.REACT_APP_API }}
+
+      - name: Build app
+        run: eas build --platform android --profile preview
+        env:
+          REACT_APP_API: ${{ secrets.REACT_APP_API }};
 
       - run: echo 'App PR link is https://expo.dev/@hoangtran94/demo-expo?serviceType=classic&distribution=expo-go&release-channel=main-${{ github.event.number }}'
